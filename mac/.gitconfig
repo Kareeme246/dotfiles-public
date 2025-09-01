@@ -1,0 +1,56 @@
+[user]
+  email = kareemelgohry1@gmail.com
+  name = KareemE246
+[core]
+  editor = nvim
+	autocrlf = input
+[init]
+  defaultBranch = main
+
+# collection of git settings I got from this article: https://blog.gitbutler.com/how-git-core-devs-configure-git/
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[tag]
+        sort = version:refname
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
+[help]
+        autocorrect = prompt
+[commit]
+        verbose = true
+[rerere]
+        enabled = true
+        autoupdate = true
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[core]
+        # excludesfile = ~/.gitignore
+        # fsmonitor = true
+        # untrackedCache = true
+        pager = delta
+[interactive]
+        diffFilter = delta --color-only
+[delta]
+        navigate = true    # use n and N to move between diff sections
+        side-by-side = true
+        line-numbers-left-format = ""
+        line-numbers-right-format = "│ "
+[merge]
+        conflictstyle = zdiff3
+[rebase]
+        autoSquash = true
+        autoStash = true
+        updateRefs = true
+[pull]
+        # rebase = true

@@ -1,0 +1,37 @@
+-- require("luasnip.session.snippet_collection").clear_snippets "latex"
+--
+-- local ls = require "luasnip"
+-- local s = ls.snippet
+-- local t = ls.text_node
+-- local i = ls.insert_node
+-- local fmt = require("luasnip.extras.fmt").fmt
+--
+-- -- Example from tj devries elixer snippets
+-- -- ls.add_snippets("latex", {
+-- --   s("el", fmt("<%= {} %>{}", { i(1), i(0) })),
+-- -- })
+--
+-- ls.add_snippets("latex", {
+--   s("beg", {
+--     t({"\\begin{"}), i(1, "environment"), t({"}"}),
+--     i(0),
+--     t({"\\end{"}), rep(1), t({"}"})
+--   }),
+--   s("fig", {
+--     t({"\\begin{figure}[hbt!]"}), t({"\\centering"}),
+--     i(1),
+--     t({"\\caption{"}), i(2), t({"}"}),
+--     t({"\\label{"}), i(3), t({"}"}),
+--     t({"\\end{figure}"})
+--   }),
+--   s("date", { t({"\\date{"}), i(1, "YYYY-MM-DD"), t({"}"}) }),
+--   s("beg", { t({"\\begin{"}), i(1, "environment"), t({"}"}), i(0), t({"\\end{"}), rep(1), t({"}"}) }),
+--   s("frac", { t({"\\frac{"}), i(1), t({"}{"}), i(2), t({"}"}) }),
+--   s("sqrt", { t({"\\sqrt{"}), i(1), t({"}"}) }),
+--   s("alpha", { t({"\\alpha"}) }),
+--   s("beta", { t({"\\beta"}) }),
+--   s("gamma", { t({"\\gamma"}) }),
+--   s("delta", { t({"\\delta"}) }),
+--   s("epsilon", { t({"\\epsilon"}) }),
+--   s("theta", { t({"\\theta"}) }),
+-- })

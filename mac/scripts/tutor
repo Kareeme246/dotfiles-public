@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Check if at least one argument is provided
+if [ "$#" -lt 1 ]; then
+    echo "Usage: tutor <schoolname> [--new]"
+    exit 1
+fi
+
+directory="/home/elgohr/TutorLogs"
+# Define the markdown file path based on the argument
+file="$directory/${1}.md"
+
+# Function to append a new day entry
+append_new_day() {
+    # Get the last day's number
+    last_day_number=$(grep -oP '^## Day \K\d+' "$file" | tail -1)
+    # If the file is empty or no day entries, start from Day 1
+    if [ -z "$last_day_number" ]; then
+        next_day_number=1
+    else
+        # Calculate the next day number
+        next_day_number=$((last_day_number + 1))
+    fi
+
+    # Get today's date in YYYY-MM-DD format
+    today_date=$(date +%Y-%m-%d)
+
+    # Append the new day entry with the template to the markdown file
+    cat <<EOF >>"$file"
+
+=====================================================================
+=========================== Auto Generated ==========================
+=====================================================================
+## Day $next_day_number - $today_date
+
+Attendance: 
+
+Personal Notes:
+
+Academic Notes:
+
+Log Notes:
+EOF
+}
+
+# Check if the file exists; if not, create it
+if [ ! -f "$file" ]; then
+    echo "File does not exist, creating a new logfile."
+    mkdir -p "$directory" # Ensure the Logs directory exists
+    touch "$file"
+fi
+
+cd "$directory" || exit
+
+# Check if the --new flag is provided
+if [ "$2" == "--new" ]; then
+    append_new_day
+fi
+
+# Open the file in neovim at the new entry or just open the file
+nvim '+ normal Go' "$file"

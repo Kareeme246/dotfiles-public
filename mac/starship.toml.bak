@@ -1,0 +1,229 @@
+add_newline = true
+# format = '''[$battery$time
+# $shell$username$hostname$directory$git_branch$git_status]()'''
+
+# Removed git because of huge performance cost in WSL2
+# Removed time because it was off by like 20min for some reason
+# format = '''[$battery$directory
+# $shell$username$hostname$character]()'''
+
+format = '''[$directory$fill$username$hostname$battery
+$character]()'''
+
+command_timeout = 3000
+
+# [fill]
+# symbol = " "
+[fill]
+symbol = '─'
+style = 'bold bright-green'
+
+[os]
+format = '[$symbol](bold white) '   
+disabled = false
+
+[os.symbols]
+Windows = ''
+Ubuntu = ''
+# Macos = ''
+
+[shell]
+bash_indicator = ""
+powershell_indicator = ""
+cmd_indicator = ""
+disabled = false
+
+# First param ─┌
+[username]
+format = "[ $user]($style) @"
+# format = " [╭─$user]($style) @"
+style_user = "red"
+style_root = "red"
+show_always = true
+
+# Second param
+[hostname]
+format = "[$hostname]($style) "
+style = "bold dimmed red"
+trim_at = "-"
+ssh_only = false
+disabled = false
+
+[sudo]
+disabled = false
+# symbol = "             "
+symbol = ""
+format = '[\($symbol\)](bold blue) '
+
+# Third param
+# [directory]
+# style = "purple"
+# truncation_length = 0
+# truncate_to_repo = true
+# truncation_symbol = "repo: "
+# [directory]
+# read_only = " "
+# truncation_length = 2
+# truncate_to_repo = false
+# repo_root_style = "#0087af"
+# style = "#00afff"
+# # Repo format
+# repo_root_format = "[ $before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+# # Non repo format
+# format = "[ $path]($style)[$read_only]($read_only_style) "
+
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+home_symbol = "󰋜 ~"
+read_only_style = "197"
+read_only = "  "
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+# Before all the version info (python, nodejs, php, etc.)
+[git_branch]
+symbol = " "
+style = "purple"
+format = "[ $symbol](white)[$branch ]($style)"
+
+[git_status]
+style = "white"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+deleted = "x"
+
+# Last param in the first line/row
+[cmd_duration]
+min_time = 1
+format = "took [$duration]($style)"
+disabled = false
+
+
+## SECOND LINE/ROW: Prompt
+# Somewhere at the beginning
+# Prompt: optional param 1
+[time]
+format = "$time($style) "
+time_format = "%T"
+style = "bright-white"
+disabled = false
+
+# Prompt: param 2 └─
+[character] 
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+
+# SYMBOLS
+[status]
+symbol = "🔴"
+format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
+map_symbol = true
+disabled = false
+
+[battery]
+format = '[$symbol$percentage]($style) '
+discharging_symbol = "󰁹 "
+# full_symbol = "󰁹 "
+# charging_symbol = "󰂄 " 
+# discharging_symbol = "󰂃 "
+disabled = false
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 20
+style = "red"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 15% and 50%
+threshold = 50
+style = "bright-yellow"
+
+[[battery.display]]  # "green" style when capacity is between 50% and 100%
+threshold = 100
+style = "green"
+
+[aws]
+symbol = "  "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+format = "via [$symbol$context]($style) "
+style = "blue bold"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+disabled = false
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[haskell]
+symbol = "λ "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[package]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+#pyenv_version_name = true
+format = 'via [${symbol}python (${version} )(\($virtualenv\) )]($style)'
+style = "bold yellow"
+pyenv_prefix = "venv "
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+detect_extensions = ["py"]
+version_format = "v${raw}"
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
+
+[nodejs]
+format = "via [ Node.js $version](bold green) "
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]

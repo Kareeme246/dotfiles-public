@@ -1,0 +1,74 @@
+#!/bin/bash
+
+## SCRIPT TAKEN FROM https://github.com/mischavandenburg/dotfiles ##
+
+# TODO
+# 1. check if file already exists
+
+
+# function to create and open a file in the specified directory
+new_inbox_note() {
+
+  # Create the directory structure if it doesn't exist
+  mkdir -p "$directory"
+  # Create the daily notes file
+  touch "$file"
+
+  # Format the file with the daily template
+  cat <<EOF >"$file"
+---
+id: $timestamp
+date: $date
+status:
+tags: 
+---
+
+# 
+
+
+## Links: 
+EOF
+}
+
+# function to prompt the user for a filename
+get_filename() {
+	read -p "Enter a filename: " filename
+	echo "$filename"
+}
+
+# Prompt the user if no filename is provided
+if [[ $# -eq 0 ]]; then
+	filename=$(get_filename)
+fi
+
+# if more than one argument is given, print error message and stop script
+if [[ $# -gt 1 ]]; then
+	echo "Please provide only one filename separated by dashes, without .md extension."
+	echo "Example: zet my-new-note"
+	exit 1
+fi
+
+# set filename to the argument given to the script
+if [[ $# -eq 1 ]]; then
+	filename=$1
+fi
+
+#.bashrc export not working for some reason (1/30/2024)
+SECOND_BRAIN=("/home/elgohr/Notes")
+directory="$SECOND_BRAIN/0-inbox"
+file="$directory/$filename.md"
+# create unique identifier and links section
+timestamp="$(date +"%Y%m%d%H%m")"
+
+cd "$SECOND_BRAIN" || exit
+
+# If the note does not already exist, create a new one.
+# This uses the test command with the -f flag.
+if [ ! -f "$file" ]; then
+    echo "File does not exist, creating a new note."
+    new_inbox_note "$directory"
+fi
+
+# Open the file in Neovim
+nvim '+ normal gg6jA' "$file" 
+# nvim '+ normal gg6jA' "$file" -c :NoNeckPain

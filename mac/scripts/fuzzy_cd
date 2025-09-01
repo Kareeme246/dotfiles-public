@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Define directories to search
+dirs=(
+  ~
+  ~/.config
+  ~/Code
+  ~/Code/Projects
+  ~/Code/classRepos/cs-3891-03/hws
+  ~/Documents/
+)
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(cat <(echo ~/) <(find "${dirs[@]}" -mindepth 1 -maxdepth 1 -type d) | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+# If already in the selected directory, do nothing
+if [[ $PWD == "$selected" ]]; then
+    exit 0
+fi
+
+# Else change to the selected directory
+cd "$selected" || exit

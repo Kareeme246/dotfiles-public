@@ -1,0 +1,25 @@
+# theme = dark:catppuccin-macchiato,light:catppuccin-latte
+theme = deep
+# background = #000000
+
+font-family = CommitMono
+font-family = nonicons
+font-size = 18
+# Disable ligatures
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
+cursor-style = block
+cursor-color = #04ff92
+shell-integration-features = no-cursor
+cursor-style-blink = false
+#cursor-invert-fg-bg = true
+
+selection-invert-fg-bg = true
+
+macos-titlebar-style = tabs
+macos-option-as-alt = true
+macos-icon = chalkboard
+#background-opacity = 0.8
+#background-blur-radius = 10

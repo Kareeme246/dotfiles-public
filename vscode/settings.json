@@ -1,0 +1,169 @@
+{
+  "workbench.iconTheme": "nonicons",
+  "workbench.statusBar.visible": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.activityBar.location": "hidden",
+  "workbench.layoutControl.enabled": false,
+  "workbench.sideBar.location": "right",
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#409FFF4d"
+  },
+  "editor.fontSize": 18,
+  "editor.fontFamily": "CommitMono, nonicons",
+  "editor.fontLigatures": false,
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.lineNumbers": "relative",
+  "editor.rulers": [
+    100
+  ],
+  "editor.tabCompletion": "on",
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.autoClosingQuotes": "never",
+  "editor.cursorSmoothCaretAnimation": "off",
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSurroundingLines": 4,
+  "editor.cursorWidth": 3,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": true,
+  "zenMode.hideStatusBar": true,
+  "terminal.integrated.hideOnStartup": "always",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.tabs.defaultColor": "terminal.ansiGreen",
+  "terminal.integrated.fontFamily": "CommitMono Nerd Font Mono",
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  // "editor.formatOnSaveMode": "modifications",
+  "editor.codeActionsOnSave": {
+    // "source.addMissingImports": "explicit",
+  },
+  // Random Extension settings
+  "errorLens.exclude": [
+    "^\"[^\"]+\": Unknown word\\."
+  ],
+  "window.commandCenter": false,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  // VIM Extension
+  "vim.leader": "<space>",
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.cursorStylePerMode.replace": "underline",
+  "vim.cursorStylePerMode.visual": "block-outline",
+  "vim.cursorStylePerMode.visualline": "block-outline",
+  "vim.foldfix": true,
+  "vim.hlsearch": false,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(250, 240, 170, 0.5)",
+  "vim.highlightedyank.textColor": "white",
+  // "vim.statusBarColorControl": true,
+  // "vim.statusBarColors.normal": ["#73B8FF"],
+  // "vim.statusBarColors.insert": "#D2A6FF",
+  // "vim.statusBarColors.visual": "#39BAE6",
+  // "vim.statusBarColors.visualline": "#59C2FF",
+  // "vim.statusBarColors.visualblock": "#FF8F40",
+  // "vim.statusBarColors.replace": "#D95757",
+  // "vim.statusBarColors.commandlineinprogress": "#7FD962",
+  // "vim.statusBarColors.searchinprogressmode": "#007ACC",
+  // "vim.statusBarColors.surroundinputmode": "#007ACC",
+  // VIM REMAPS
+  // Controls which keys vim will NOT handle
+  "vim.handleKeys": {
+    "<C-a>": true,
+    "<C-d>": true,
+    "<C-f>": false,
+    "<C-p>": false,
+    "<C-w>": false,
+    "<C-q>": false
+  },
+ "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<esc>"
+      ],
+      "commands": [
+        ":noh"
+      ]
+    },
+    {
+      // Not working (I don't know the right command to call maybe?)
+      "before": [
+        "<leader>",
+        "/"
+      ],
+      "commands": [
+        "editor.action.toggleLineComment"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "b"
+      ],
+      "commands": [
+        "workbench.action.files.newUntitledFile"
+      ]
+    },
+    {
+      "before": [
+        "[",
+        "d"
+      ],
+      "commands": [
+        "editor.action.marker.prev"
+      ]
+    },
+    {
+      "before": [
+        "]",
+        "d"
+      ],
+      "commands": [
+        "editor.action.marker.next"
+      ]
+    },
+    {
+      "before": [
+        "shift+k"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "c",
+        "a"
+      ],
+      "commands": [
+        "editor.action.quickFix"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f",
+        "m"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ]
+    }
+  ],
+  "editor.stickyScroll.enabled": false,
+  "workbench.colorTheme": "Theme Mix",
+  "git.openRepositoryInParentFolders": "never",
+  "cmake.showOptionsMovedNotification": false,
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingComments": "never"
+}
